@@ -1,0 +1,19 @@
+.nav{
+    grid-area: n;
+    background-color: #DDDDDD;
+}
+
+
+.item a {
+    margin: 20px;
+    color: #112D4E;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 18px;
+}
+
+.item a.active {
+    color: #928A97;
+}
+
+
+

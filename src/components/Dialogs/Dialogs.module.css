@@ -1,0 +1,31 @@
+.dialogs{
+    display: grid;
+    grid-template-columns: 2fr 10fr;
+
+}
+
+.dialogs .dialogsItems{
+    margin: 20px;
+    color: #112D4E;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 18px;
+}
+
+.dialogsItems .active {
+    color: gold;
+}
+
+.dialogs .dialogsItems .dialog {
+
+}
+
+.messages{
+    margin: 20px;
+    color: #112D4E;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 18px;
+}
+
+.messages .message {
+
+}
