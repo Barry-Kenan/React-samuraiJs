@@ -17,7 +17,8 @@ let ProfileContainer = (props) => {
     useEffect(() => {
         props.getStatus(userId)
     },[userId])
-    return <Profile {...props} profile={props.profile} status={props.status} updateStatus={props.updateStatus} isOwner={!userId} savePhoto={props.savePhoto} saveProfile={props.saveProfile} />
+    return <Profile {...props} profile={props.profile} status={props.status} updateStatus={props.updateStatus}
+                    isOwner={!userId} savePhoto={props.savePhoto} saveProfile={props.saveProfile} />
 
 }
 

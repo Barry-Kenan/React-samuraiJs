@@ -6,6 +6,11 @@
     max-width: 250px;
 
 }
-.contacts{
+.contact{
     padding-left: 15px;
+}
+.formSummaryError{
+    border: red 1px solid;
+    padding: 5px;
+    color: red;
 }
