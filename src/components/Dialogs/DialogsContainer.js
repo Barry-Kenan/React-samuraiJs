@@ -3,7 +3,7 @@ import Dialogs from "./Dialogs";
 import {connect} from "react-redux";
 import {WithAuthRedirect} from "../../hoc/withAuthRedirect";
 import {compose} from "redux";
-import {sendMessage} from "../../redux/dialogs-reducer";
+import {actions} from "../../redux/dialogs-reducer";
 
 
 let mapStateToProps = (state) => {
@@ -11,9 +11,14 @@ let mapStateToProps = (state) => {
         messagesPage: state.messagesPage
     }
 }
+let mapDispatchToProps = (dispatch) => ({
+    sendMessage: (newMessageText) => {
+        dispatch(actions.sendMessage(newMessageText))
+    }
+})
 
 export default compose(
-    connect(mapStateToProps, {sendMessage}),
+    connect(mapStateToProps, mapDispatchToProps),
     WithAuthRedirect
 )(Dialogs);
 

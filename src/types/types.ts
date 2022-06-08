@@ -26,3 +26,12 @@ export type UsersType = {
     followed:boolean
 
 }
+
+export type ProfileType = {
+    userId: number
+    lookingForAJob: boolean
+    lookingForAJobDescription: string
+    fullName: string
+    contacts: ContactsType
+    photos: PhotosType
+}
