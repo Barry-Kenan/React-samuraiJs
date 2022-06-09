@@ -1,12 +1,7 @@
 import React, {useEffect} from "react";
-import Preloader from "../common/Preloader/Preloader";
 import Users from "./Users";
 import {connect} from "react-redux";
-import {
-    follow, requestUsers,
-    setCurrentPage,
-    unfollow
-} from "../../redux/users-reducer";
+import {follow, requestUsers, setCurrentPage, unfollow} from "../../redux/users-reducer";
 import {WithAuthRedirect} from "../../hoc/withAuthRedirect";
 import {compose} from "redux";
 

@@ -1,7 +1,7 @@
 import React,{useState} from 'react'
 
 
-const Games = (props) => {
+const Games:React.FC = (props) => {
     const [count, setCount] = useState(0);
 
     return (

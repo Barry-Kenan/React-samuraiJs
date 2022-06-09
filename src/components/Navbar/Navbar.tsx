@@ -4,7 +4,7 @@ import {NavLink} from "react-router-dom";
 
 const active = ({ isActive }) => isActive ? s.active : undefined
 
-const Navbar = () => {
+const Navbar:React.FC = () => {
     return (
         <nav className={s.nav}>
             <div className={s.item}>

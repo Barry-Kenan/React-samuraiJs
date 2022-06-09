@@ -11,9 +11,14 @@ import Login from "./components/Login/Login";
 import {connect} from "react-redux";
 import Preloader from "./components/common/Preloader/Preloader";
 import {initializeApp} from "./redux/app-reducer";
+import {AppStateType} from "./redux/redux-store";
 
+type MapPropsType = ReturnType<typeof mapStateToProps>
+type MapDispatchPropsType = {
+    initializeApp: () => void
+}
 
-const App = (props) => {
+const App:React.FC<MapPropsType & MapDispatchPropsType> = (props) => {
     useEffect(() => {
         props.initializeApp()
     })
@@ -38,7 +43,7 @@ const App = (props) => {
     );
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state:AppStateType) => ({
     initialized: state.app.initialized
 })
 
