@@ -10,10 +10,10 @@ type PropsType = {
     profile:ProfileType
 }
 
-const ProfileDataForm:React.FC<InjectedFormProps<NewPostFormType, PropsType> & PropsType> = ({handleSubmit, profile,error}) => {
+const ProfileDataForm:React.FC<InjectedFormProps<NewPostFormType, PropsType> & PropsType> = (props) => {
     return (
-        <form onSubmit={handleSubmit}>
-            {error && <div className={s.formSummaryError}>{error}</div>}
+        <form onSubmit={props.handleSubmit}>
+            {props.error && <div className={s.formSummaryError}>{props.error}</div>}
             <button onClick={() => {
             }}>Save
             </button>
@@ -28,12 +28,12 @@ const ProfileDataForm:React.FC<InjectedFormProps<NewPostFormType, PropsType> & P
                 {createField<ProfileTypeKeys>("My professional skills", "lookingForAJobDescription", [], Textarea)}
             </div>
             <div>
-                <b>About me: </b>{profile.aboutMe}
+                <b>About me: </b>{props.profile.aboutMe}
                 {createField<ProfileTypeKeys>("About me", "aboutMe", [], Textarea)}
             </div>
 
             <div>
-                <b>Contacts: </b>{Object.keys(profile.contacts).map(key => {
+                <b>Contacts: </b>{Object.keys(props.profile.contacts).map(key => {
                 return <div className={s.contact}>
                 <b>{key}: {createField(key, "contacts."+key, [], Input)}</b>
                 </div>
@@ -44,6 +44,6 @@ const ProfileDataForm:React.FC<InjectedFormProps<NewPostFormType, PropsType> & P
     )
 }
 
-const ProfileDataReduxForm = reduxForm<PropsType,ProfileType>({form: 'edit-profile'})(ProfileDataForm)
+const ProfileDataReduxForm = reduxForm({form: 'edit-profile'})(ProfileDataForm)
 
 export default ProfileDataReduxForm;

@@ -5,15 +5,17 @@ import Games from "./components/Games/Games"
 import {Route, Routes} from "react-router-dom";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import UsersContainer from "./components/Users/UsersContainer";
-import ProfileContainerFunc from "./components/Profile/ProfileContainerFunc";
 import HeaderContainer from "./components/Header/HeaderContainer";
 import Login from "./components/Login/Login";
 import {connect} from "react-redux";
 import Preloader from "./components/common/Preloader/Preloader";
 import {initializeApp} from "./redux/app-reducer";
 import {AppStateType} from "./redux/redux-store";
+import ProfileContainer from "./components/Profile/ProfileContainer";
 
-type MapPropsType = ReturnType<typeof mapStateToProps>
+type MapPropsType = {
+    initialized:boolean
+}
 type MapDispatchPropsType = {
     initializeApp: () => void
 }
@@ -31,8 +33,9 @@ const App:React.FC<MapPropsType & MapDispatchPropsType> = (props) => {
             <Navbar/>
             <div className="App-wrapper-content">
                 <Routes>
-                    <Route path='/profile' element={<ProfileContainerFunc/>}/>
-                    <Route path='/profile/:userId' element={<ProfileContainerFunc/>}/>
+                    <Route path='/' element={<ProfileContainer/>}/>
+                    <Route path='/profile' element={<ProfileContainer/>}/>
+                    <Route path='/profile/:userId' element={<ProfileContainer/>}/>
                     <Route path='/dialogs' element={<DialogsContainer/>}/>
                     <Route path='/login' element={<Login/>}/>
                     <Route path='/users' element={<UsersContainer/>}/>

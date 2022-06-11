@@ -8,22 +8,25 @@ import {compose} from "redux";
 import {AppStateType} from "../../redux/redux-store";
 import {ProfileType} from "../../types/types";
 
-type MapPropsType = ReturnType<typeof mapStateToProps>
+type MapPropsType = {
+    profile: ProfileType
+    status: string
+}
 type DispatchPropsType = {
-    getUserProfile: (userId:number)=>void
-    getStatus: (userId:number)=>void
+    getUserProfile: (userId:string|undefined)=>void
+    getStatus: (userId:string|undefined)=>void
     updateStatus: (status:string)=>void
     savePhoto: (file:File)=>void
     saveProfile: (profile:ProfileType)=>Promise<any>
 }
 type PathParamTypes = {
-    userId: number
+    userId: string
 }
 
-let ProfileContainer: React.FC<MapPropsType & DispatchPropsType & PathParamTypes > = (props) => {
-    const params = useParams()
+let ProfileContainer: React.FC<MapPropsType & DispatchPropsType> = (props) => {
+    const params = useParams<{userId:string | undefined}>()
     const userId = params.userId
-
+    debugger;
     useEffect(() => {
         props.getUserProfile(userId)
     },[userId])

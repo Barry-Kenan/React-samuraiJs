@@ -19,6 +19,9 @@ export const getIsFetching = (state:AppStateType) => {
 export const getFollowingInProgress = (state:AppStateType) => {
     return state.usersPage.followingInProgress
 }
+export const getUsersFilter = (state:AppStateType) => {
+    return state.usersPage.filter
+}
 
 
 /*для создания сложных селекторов нужно использовать библиотеку reselect (reactJs путь самурая 84 урок)*/

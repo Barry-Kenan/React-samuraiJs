@@ -16,7 +16,8 @@ type PropsType = {
     saveProfile: (profile:ProfileType)=>Promise<ProfileType>
 }
 
-const ProfileInfo:React.FC<PropsType> = ({profile, status, updateStatus, isOwner, savePhoto, saveProfile}) => {
+const ProfileInfo:React.FC<PropsType> = ({profile, status, updateStatus,
+                                             isOwner, savePhoto, saveProfile}) => {
     const [editMode, setEditMode] = useState(false)
 
     if (!profile) {
