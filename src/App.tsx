@@ -4,14 +4,14 @@ import Navbar from "./components/Navbar/Navbar";
 import Games from "./components/Games/Games"
 import {Route, Routes} from "react-router-dom";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
-import UsersContainer from "./components/Users/UsersContainer";
+import {UsersPage} from "./components/Users/UsersContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
-import Login from "./components/Login/Login";
 import {connect} from "react-redux";
 import Preloader from "./components/common/Preloader/Preloader";
 import {initializeApp} from "./redux/app-reducer";
 import {AppStateType} from "./redux/redux-store";
 import ProfileContainer from "./components/Profile/ProfileContainer";
+import {Login} from "./components/Login/Login";
 
 type MapPropsType = {
     initialized:boolean
@@ -38,7 +38,7 @@ const App:React.FC<MapPropsType & MapDispatchPropsType> = (props) => {
                     <Route path='/profile/:userId' element={<ProfileContainer/>}/>
                     <Route path='/dialogs' element={<DialogsContainer/>}/>
                     <Route path='/login' element={<Login/>}/>
-                    <Route path='/users' element={<UsersContainer/>}/>
+                    <Route path='/users' element={<UsersPage/>}/>
                     <Route path='/games' element={<Games/>}/>
                 </Routes>
             </div>

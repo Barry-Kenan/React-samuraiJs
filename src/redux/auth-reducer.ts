@@ -36,7 +36,7 @@ const authReducer = (state = initialState, action: ActionsType):InitialStateType
     }
 }
 
-type ActionsType = InferActionsTypes<typeof actions>
+export type ActionsType = InferActionsTypes<typeof actions>
 type ThunkType = BaseThunkType<ActionsType | FormAction>
 
 export const actions = {

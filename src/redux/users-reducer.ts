@@ -74,7 +74,7 @@ const usersReducer = (state = initialState, action: ActionsType): InitialStateTy
     }
 }
 
-type ActionsType = InferActionsTypes<typeof actions>
+export type ActionsType = InferActionsTypes<typeof actions>
 
 export const actions = {
     followSuccess: (userId: number) => ({type: 'SN/USERS/FOLLOW', userId} as const),
@@ -92,7 +92,7 @@ export const actions = {
 }
 
 
-type ThunkType = BaseThunkType<ActionsType>
+export type ThunkType = BaseThunkType<ActionsType>
 
 export const requestUsers = (page: number, pageSize: number, filter: FilterType): ThunkType => {
     return async (dispatch) => {
