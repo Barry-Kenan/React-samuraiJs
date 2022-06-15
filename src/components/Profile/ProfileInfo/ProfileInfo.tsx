@@ -5,6 +5,7 @@ import ProfileStatusFunc from "./ProfileStatusFunc";
 import ava from './../../../assets/images/ava.jpg'
 import ProfileDataForm from "./ProfileDataForm";
 import {ContactsType, ProfileType} from "../../../types/types";
+import {Button, Image} from 'antd';
 
 
 type PropsType = {
@@ -42,7 +43,9 @@ const ProfileInfo:React.FC<PropsType> = ({profile, status, updateStatus,
         <div>
             <div className={s.descriptionBlock}>
                 <div>
-                    <img src={profile.photos.large || ava} alt="photo" className={s.mainPhoto}/>
+                    <Image width={250}
+                    src={profile.photos.large || ava}/>
+                    {/*<img src={profile.photos.large || ava} alt="photo" className={s.mainPhoto}/>*/}
                     {isOwner && <div><input type={'file'} onChange={onMainPhotoSelected}/></div>}
                 </div>
                 {editMode ? <ProfileDataForm initialValues={profile} profile={profile} onSubmit={onSubmit}/>
@@ -67,7 +70,7 @@ type ProfileDataPropsType = {
 const ProfileData: React.FC<ProfileDataPropsType> = ({profile, isOwner, goToEditMode}) => {
     return (
         <>
-            {isOwner && <div> <button onClick={goToEditMode}>Edit</button> </div>}
+            {isOwner && <div> <Button onClick={goToEditMode}>Edit</Button> </div>}
             <div>
                 <b>Full name: </b>{profile.fullName}
             </div>

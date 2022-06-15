@@ -2,7 +2,9 @@ import React from "react";
 import s from './FormControls.module.css'
 import {Field, WrappedFieldMetaProps, WrappedFieldProps} from "redux-form";
 import {FieldValidatorType} from "../../../utils/validators";
+import {Input} from "antd";
 
+const {TextArea} = Input
 type FormControlsPropsType = {
     meta: WrappedFieldMetaProps,
     children: React.ReactNode
@@ -23,14 +25,14 @@ const FormControl: React.FC<FormControlsPropsType> = ({meta:{touched, error},chi
 }
 
 
-export const Textarea: React.FC<WrappedFieldProps> = (props) => {
+export const TextareaField: React.FC<WrappedFieldProps> = (props) => {
     const {input, meta, ...restProps} = props
-    return <FormControl {...props}><textarea {...input} {...restProps}/></FormControl>
+    return <FormControl {...props}><TextArea {...input} {...restProps}/></FormControl>
 }
 
-export const Input: React.FC<WrappedFieldProps> = (props) => {
+export const InputField: React.FC<WrappedFieldProps> = (props) => {
     const {input, meta, ...restProps} = props
-    return <FormControl {...props}><input {...input} {...restProps}/></FormControl>
+    return <FormControl {...props}><Input {...input} {...restProps}/></FormControl>
 }
 
 

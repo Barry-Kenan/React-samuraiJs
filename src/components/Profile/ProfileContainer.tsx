@@ -19,14 +19,11 @@ type DispatchPropsType = {
     savePhoto: (file:File)=>void
     saveProfile: (profile:ProfileType)=>Promise<any>
 }
-type PathParamTypes = {
-    userId: string
-}
+
 
 let ProfileContainer: React.FC<MapPropsType & DispatchPropsType> = (props) => {
     const params = useParams<{userId:string | undefined}>()
     const userId = params.userId
-    debugger;
     useEffect(() => {
         props.getUserProfile(userId)
     },[userId])

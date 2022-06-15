@@ -1,7 +1,7 @@
 import React from 'react';
 import s from './ProfileInfo.module.css'
 import {InjectedFormProps, reduxForm} from "redux-form";
-import {createField, Input, Textarea} from "../../common/FormControls/FormControls";
+import {createField, InputField, TextareaField} from "../../common/FormControls/FormControls";
 import {ProfileType} from "../../../types/types";
 import {NewPostFormType} from "../MyPosts/MyPosts";
 
@@ -18,24 +18,24 @@ const ProfileDataForm:React.FC<InjectedFormProps<NewPostFormType, PropsType> & P
             }}>Save
             </button>
             <div>
-                <b>Full name: </b>{createField<ProfileTypeKeys>("Full name", "fullName", [], Input)}
+                <b>Full name: </b>{createField<ProfileTypeKeys>("Full name", "fullName", [], InputField)}
             </div>
             <div>
-                <b>Looking for a job: </b>{createField<ProfileTypeKeys>("", "lookingForAJob", [], Input, {type: "checkbox"})}
+                <b>Looking for a job: </b>{createField<ProfileTypeKeys>("", "lookingForAJob", [], InputField, {type: "checkbox"})}
             </div>
             <div>
                 <b>My professional skills: </b>
-                {createField<ProfileTypeKeys>("My professional skills", "lookingForAJobDescription", [], Textarea)}
+                {createField<ProfileTypeKeys>("My professional skills", "lookingForAJobDescription", [], TextareaField)}
             </div>
             <div>
                 <b>About me: </b>{props.profile.aboutMe}
-                {createField<ProfileTypeKeys>("About me", "aboutMe", [], Textarea)}
+                {createField<ProfileTypeKeys>("About me", "aboutMe", [], TextareaField)}
             </div>
 
             <div>
                 <b>Contacts: </b>{Object.keys(props.profile.contacts).map(key => {
                 return <div className={s.contact}>
-                <b>{key}: {createField(key, "contacts."+key, [], Input)}</b>
+                <b>{key}: {createField(key, "contacts."+key, [], InputField)}</b>
                 </div>
             })}
             </div>

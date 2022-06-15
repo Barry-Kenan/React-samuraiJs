@@ -1,8 +1,9 @@
 import React from "react";
 import {InjectedFormProps, reduxForm} from "redux-form";
-import {createField, Textarea} from "../../../common/FormControls/FormControls";
+import {createField, TextareaField} from "../../../common/FormControls/FormControls";
 import {maxLengthCreator, required} from "../../../../utils/validators";
 import {NewPostFormType} from "../MyPosts";
+import {Button} from "antd";
 
 
 const maxLength30 = maxLengthCreator(30)
@@ -14,10 +15,10 @@ const AddNewPostForm: React.FC<InjectedFormProps<NewPostFormType, PropsType> & P
         <form onSubmit={props.handleSubmit}>
             <div>
                 {createField<NewMessageFormValuesTypeKeys>("new Post", "newPostText",
-                    [required, maxLength30], Textarea)}
+                    [required, maxLength30], TextareaField)}
             </div>
             <div>
-                <button>Add post</button>
+                <Button htmlType={"submit"}>Add post</Button>
             </div>
         </form>
     )

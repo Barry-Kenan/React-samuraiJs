@@ -1,5 +1,5 @@
 import {InjectedFormProps, reduxForm} from "redux-form";
-import {createField, Textarea} from "../../common/FormControls/FormControls";
+import {createField, TextareaField} from "../../common/FormControls/FormControls";
 import {maxLengthCreator, required} from "../../../utils/validators";
 import {NewMessageFormType} from "../Dialogs";
 import React from "react";
@@ -13,7 +13,7 @@ const AddMessageForm: React.FC<InjectedFormProps<NewMessageFormType, PropsType> 
         <form onSubmit={props.handleSubmit}>
             <div>
                 {createField<NewMessageFormValuesTypeKeys>("new Message Text","newMessageText",
-                    [required, maxLength50],Textarea)}
+                    [required, maxLength50],TextareaField)}
             </div>
             <div>
                 <button>Send Message</button>
